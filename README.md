@@ -61,6 +61,7 @@ try:
         time.sleep(0.2)             # Aguarda 0.2 segundos
 except KeyboardInterrupt:
     GPIO.cleanup()  # Limpa as configurações do GPIO ao encerrar o script
+```
     Este código controla o piscar de um LED conectado ao pino GPIO 18 da Raspberry Pi. Ele utiliza a biblioteca RPi.GPIO, que permite interagir com os pinos GPIO de forma simples. A biblioteca time é usada para criar os intervalos de tempo entre os estados do LED.
 
 Primeiro, o código define o modo de numeração dos pinos como BCM, que corresponde à numeração do processador, e desativa avisos com GPIO.setwarnings(False). Em seguida, configura o pino GPIO 18 como saída, pois ele será usado para ligar e desligar o LED.
