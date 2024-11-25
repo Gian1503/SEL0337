@@ -56,21 +56,4 @@ while True:
     sleep(1)
     PinLED.off()
     sleep(1)
-## Código 2: Blink com systemd (Serviço)
-Este código configura um serviço no systemd para controlar o blink do LED automaticamente em segundo plano. O serviço é iniciado no multi-user.target, o que significa que ele será executado após a inicialização do sistema.
-
-Arquivo: /etc/systemd/system/blink.service
-ini
-Copiar código
-[Unit]
-Description=Blink LED 
-After=multi-user.target
-
-[Service]
-ExecStart=/usr/bin/python3 /home/sel/blink.py
-ExecStop=/usr/bin/python3 /home/sel/stop_blink.py
-User=sel
-
-[Install]
-WantedBy=multi-user.target
 
