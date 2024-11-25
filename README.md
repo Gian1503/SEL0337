@@ -37,26 +37,40 @@ O projeto consiste em:
 Este projeto demonstra como criar um programa em Python para fazer um LED piscar usando os pinos GPIO da Raspberry Pi.
 
 ## Código Python
+# Projeto de Controle de LED Blink
 
-O código abaixo faz o LED piscar continuamente com intervalos de 0,2 segundos.
+Este repositório contém um projeto simples de controle de LED, com dois métodos para acender e apagar o LED com um intervalo de 1 segundo. O primeiro código utiliza a biblioteca `gpiozero` para controle diretamente no Raspberry Pi, e o segundo código é uma configuração de serviço no systemd para gerenciar o blink do LED.
+
+## Código 1: Blink com GPIOZero (Python)
+
+Este código utiliza a biblioteca `gpiozero` para controlar um LED no Raspberry Pi. O LED acende e apaga a cada 1 segundo.
 
 ```python
-import RPi.GPIO as GPIO
-import time
+from gpiozero import LED
+from time import sleep
 
-# Configuração do GPIO
-GPIO.setmode(GPIO.BCM)  # Define o modo de numeração dos pinos como BCM
-GPIO.setwarnings(False)  # Desativa mensagens de aviso sobre o uso dos GPIOs
+PinLED = LED(18)
 
-PIN = 18  # Pino GPIO conectado ao LED
-GPIO.setup(PIN, GPIO.OUT)  # Configura o pino como saída
+while True:
+    PinLED.on()
+    sleep(1)
+    PinLED.off()
+    sleep(1)
+## Código 2: Blink com systemd (Serviço)
+Este código configura um serviço no systemd para controlar o blink do LED automaticamente em segundo plano. O serviço é iniciado no multi-user.target, o que significa que ele será executado após a inicialização do sistema.
 
-try:
-    while True:
-        GPIO.output(PIN, GPIO.HIGH)  # Liga o LED
-        time.sleep(0.2)             # Aguarda 0.2 segundos
-        GPIO.output(PIN, GPIO.LOW)  # Desliga o LED
-        time.sleep(0.2)             # Aguarda 0.2 segundos
-except KeyboardInterrupt:
-    GPIO.cleanup()  # Limpa as configurações do GPIO ao encerrar o script
+Arquivo: /etc/systemd/system/blink.service
+ini
+Copiar código
+[Unit]
+Description=Blink LED 
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/sel/blink.py
+ExecStop=/usr/bin/python3 /home/sel/stop_blink.py
+User=sel
+
+[Install]
+WantedBy=multi-user.target
 
