@@ -1,13 +1,11 @@
-# Import das bibliotecas
-from gpiozero import LED
-from time import sleep
+[Unit]
+Description=Blink LED 
+After=multi-user.target
 
-# Associação do LED ao pino GPIO 18 do Raspberry Pi
-PinLED = LED(18)
+[Service]
+ExecStart=/usr/bin/python3 /home/sel/blink.py
+ExecStop=/usr/bin/python3 /home/sel/stop_blink.py
+User=sel
 
-# Loop infinito para alternar o estado do LED
-while True:  
-    PinLED.on()  # Liga o LED 
-    sleep(1)     # Aguarda 1 segundo 
-    PinLED.off() # Desliga o LED 
-    sleep(1)     # Aguarda 1 segundo
+[Install]
+WantedBy=multi-user.target
