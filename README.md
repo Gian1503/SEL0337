@@ -28,17 +28,30 @@ O projeto consiste em:
 - A montagem prática do circuito pode ser vista na imagem abaixo:
   ![Montagem do Circuito](link_para_fotografia)
 
-- Funcionamento do projeto com o LED piscando:
-  ![Funcionamento do Projeto](link_para_video)
 
-## Scripts e Arquivos
-- **[blink.sh](scripts/blink.sh)**: Script Bash que controla o piscar do LED.
-- **[blink.service](services/blink.service)**: Arquivo de configuração do serviço.
-- **[historico_git.txt](historico_git.txt)**: Histórico de alterações do projeto.
 
 ## Comandos Principais
 
-### Configuração Inicial
-1. Torne o script executável:
-   ```bash
-   chmod +x scripts/blink.sh
+import RPi.GPIO as GPIO
+import time
+
+# Configuração do GPIO
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+
+PIN = 18  # Pino GPIO conectado ao LED
+GPIO.setup(PIN, GPIO.OUT)
+
+try:
+    while True:
+        GPIO.output(PIN, GPIO.HIGH)  # Liga o LED
+        time.sleep(0.2)             # Aguarda 0.2 segundos
+        GPIO.output(PIN, GPIO.LOW)  # Desliga o LED
+        time.sleep(0.2)             # Aguarda 0.2 segundos
+except KeyboardInterrupt:
+    GPIO.cleanup()  # Limpa as configurações do GPIO ao encerrar o script
+    Este código controla o piscar de um LED conectado ao pino GPIO 18 da Raspberry Pi. Ele utiliza a biblioteca RPi.GPIO, que permite interagir com os pinos GPIO de forma simples. A biblioteca time é usada para criar os intervalos de tempo entre os estados do LED.
+
+Primeiro, o código define o modo de numeração dos pinos como BCM, que corresponde à numeração do processador, e desativa avisos com GPIO.setwarnings(False). Em seguida, configura o pino GPIO 18 como saída, pois ele será usado para ligar e desligar o LED.
+
+No loop principal, o LED alterna entre ligado (HIGH) e desligado (LOW) com intervalos de 0,2 segundos, criando o efeito de piscar continuamente. Se o script for interrompido com Ctrl+C, o código limpa as configurações dos pinos GPIO para evitar problemas em futuras execuções.
