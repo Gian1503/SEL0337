@@ -7,16 +7,16 @@ Este repositório documenta a prática de configuração de um serviço personal
 ## Funcionamento do Projeto
 
 O projeto consiste em:
-1. **Script Bash (`blink.sh`)**: Controla o GPIO para alternar o estado do LED.
-2. **Arquivo de Serviço (`blink.service`)**: Configura o `systemd` para gerenciar o script, permitindo sua inicialização automática no boot.
+1. **Script Python (`blink.py`)**: Controla o GPIO para alternar o estado do LED.
+2. **Arquivo de Serviço (`blink2524.service`)**: Configura o `systemd` para gerenciar o script, permitindo sua inicialização automática no boot.
 3. **Gerenciamento com Git/GitHub**: Controle de versão dos arquivos e documentação do projeto, com histórico completo dos commits.
 
 ### Etapas Implementadas
-1. **Criação do Script (`blink.sh`)**:
+1. **Criação do Script (`blink.py`)**:
    - Exporta e configura o GPIO 18 como saída.
    - Alterna o estado do LED em um loop infinito.
 
-2. **Configuração do Serviço (`blink.service`)**:
+2. **Configuração do Serviço (`blink2524.service`)**:
    - Define o script como o processo a ser executado no boot.
    - Permite controle manual utilizando `systemctl` (start, stop, enable, disable).
 
