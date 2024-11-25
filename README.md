@@ -42,6 +42,17 @@ GPIO.setwarnings(False)
 PIN = 18  # Pino GPIO conectado ao LED
 GPIO.setup(PIN, GPIO.OUT)
 
+```python
+import RPi.GPIO as GPIO
+import time
+
+# Configuração do GPIO
+GPIO.setmode(GPIO.BCM)  # Define o modo de numeração dos pinos como BCM
+GPIO.setwarnings(False)  # Desativa mensagens de aviso sobre o uso dos GPIOs
+
+PIN = 18  # Pino GPIO conectado ao LED
+GPIO.setup(PIN, GPIO.OUT)  # Configura o pino como saída
+
 try:
     while True:
         GPIO.output(PIN, GPIO.HIGH)  # Liga o LED
