@@ -32,15 +32,13 @@ O projeto consiste em:
 
 ## Comandos Principais
 
-import RPi.GPIO as GPIO
-import time
+# Projeto Blink LED com Raspberry Pi
 
-# Configuração do GPIO
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
+Este projeto demonstra como criar um programa em Python para fazer um LED piscar usando os pinos GPIO da Raspberry Pi.
 
-PIN = 18  # Pino GPIO conectado ao LED
-GPIO.setup(PIN, GPIO.OUT)
+## Código Python
+
+O código abaixo faz o LED piscar continuamente com intervalos de 0,2 segundos.
 
 ```python
 import RPi.GPIO as GPIO
@@ -60,9 +58,5 @@ try:
         GPIO.output(PIN, GPIO.LOW)  # Desliga o LED
         time.sleep(0.2)             # Aguarda 0.2 segundos
 except KeyboardInterrupt:
-    GPIO.cleanup()  # Limpa as configurações do GPIO ao encerrar o script```
-    Este código controla o piscar de um LED conectado ao pino GPIO 18 da Raspberry Pi. Ele utiliza a biblioteca RPi.GPIO, que permite interagir com os pinos GPIO de forma simples. A biblioteca time é usada para criar os intervalos de tempo entre os estados do LED.
+    GPIO.cleanup()  # Limpa as configurações do GPIO ao encerrar o script
 
-Primeiro, o código define o modo de numeração dos pinos como BCM, que corresponde à numeração do processador, e desativa avisos com GPIO.setwarnings(False). Em seguida, configura o pino GPIO 18 como saída, pois ele será usado para ligar e desligar o LED.
-
-No loop principal, o LED alterna entre ligado (HIGH) e desligado (LOW) com intervalos de 0,2 segundos, criando o efeito de piscar continuamente. Se o script for interrompido com Ctrl+C, o código limpa as configurações dos pinos GPIO para evitar problemas em futuras execuções.
