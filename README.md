@@ -26,9 +26,10 @@ O projeto consiste em:
 
 ## Fotografias da Montagem
 - A montagem prática do circuito pode ser vista na imagem abaixo:
-  ![Montagem do Circuito](link_para_fotografia)
 
-
+<div align="center">
+<img src="https://github.com/user-attachments/assets/cfb7eff5-4f56-4d57-8b45-3468f3264a75" width="500px" />
+</div>
 
 ## Comandos Principais
 
