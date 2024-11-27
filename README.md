@@ -71,14 +71,16 @@ O terceiro código é um unit file, que é responsável pela configuração do s
 serviço que criamos à disposição do systemd.
 
 ```
-import RPi.GPIO as GPIO
+[Unit]
+Description=Blink LED 
+After=multi-user.target
 
-# Configuração do GPIO
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(18, GPIO.OUT)
+[Service]
+ExecStart=/usr/bin/python3 /home/sel/blink.py
+ExecStop=/usr/bin/python3 /home/sel/stop_blink.py
+User=sel
 
-# Desliga o LED e limpa os pinos
-GPIO.output(18, GPIO.LOW)
-GPIO.cleanup()
+[Install]
+WantedBy=multi-user.target
 ```
 
