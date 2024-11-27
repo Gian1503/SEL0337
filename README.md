@@ -1,5 +1,5 @@
 # SEL0337
-PRATICA 5
+PRÁTICA 5
 # Projeto Blink LED com SystemD
 
 Este repositório documenta a prática de configuração de um serviço personalizado utilizando `systemd` em uma Raspberry Pi. O objetivo do projeto é demonstrar como configurar um script para ser executado automaticamente no boot, gerenciando o piscar de um LED conectado a um GPIO da placa.
