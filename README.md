@@ -83,4 +83,10 @@ User=sel                                  # Define que o serviço será executad
 [Install]
 WantedBy=multi-user.target                # Garante que o serviço será habilitado no nível multiusuário.
 ```
+# Documentação da atividade no GitHub
+
+A última etapa foi transferir os scripst criados na raspberry pi para este repositório, utilizando comandos como: **git config --global user.name "username"** e **git config --global user.email "seu_email"**.
+Uma vez que o repositório foi clonado na raspberry pi e o acesso foi estabelecido, os scripts foram transferidos para este repositório utilizando comandos como: **git add**, **git commit** e **git push**. Para executar o comando **git push** com sucesso, foi necessário gerar um Token de acesso na conta do GitHub.
+Todo o histórico de commits para esta atividade pode ser observado no arquivo **historico_git.txt**.
+
 
