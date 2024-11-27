@@ -1,11 +1,11 @@
 [Unit]
-Description=Blink LED 
-After=multi-user.target
+Description=Blink LED                      # Descrição do serviço para referência.
+After=multi-user.target                    # O serviço será iniciado após o sistema atingir o nível multiusuário.
 
 [Service]
-ExecStart=/usr/bin/python3 /home/sel/blink.py
-ExecStop=/usr/bin/python3 /home/sel/stop_blink.py
-User=sel
+ExecStart=/usr/bin/python3 /home/sel/blink.py  # Comando para iniciar o serviço (faz o LED piscar).
+ExecStop=/usr/bin/python3 /home/sel/stop_blink.py  # Comando para parar o serviço (interrompe o piscar do LED).
+User=sel                                  # Define que o serviço será executado pelo usuário 'sel'.
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=multi-user.target                # Garante que o serviço será habilitado no nível multiusuário.
