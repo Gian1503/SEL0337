@@ -7,7 +7,7 @@ Este repositório documenta a prática de configuração de um serviço personal
 ## Funcionamento do Projeto
 
 O projeto consiste em:
-1. **2 Scripts Python (`blink.py`)**: Responsáveis por controlar o GPIO para alternar o estado do LED e parar o serviço uma vez que desejado.
+1. **Dois scripts Python (`blink.py` e `stop_blink.py`)**: Responsáveis por controlar o GPIO para alternar o estado do LED e parar o serviço uma vez que desejado.
 2. **Arquivo de Serviço (`blink2524.service`)**: Arquivo que configura o `systemd` para gerenciar o script, permitindo sua inicialização automática no boot.
 3. **Gerenciamento com Git/GitHub**: Controle de versão dos arquivos e documentação do projeto, com histórico completo dos commits.
 
