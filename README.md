@@ -31,16 +31,12 @@ O projeto consiste em:
 <img src="https://github.com/user-attachments/assets/cfb7eff5-4f56-4d57-8b45-3468f3264a75" width="500px" />
 </div>
 
-# Projeto Blink LED com Raspberry Pi
 
-Este projeto demonstra como criar um programa em Python para fazer um LED piscar usando os pinos GPIO da Raspberry Pi.
-
-## Códigos Python
-# Projeto de Controle de LED Blink
+# Projeto de Controle de LED - códigos python
 
 Esta seção contém um projeto simples de controle de LED, com dois comandos para acender e apagar o LED com um intervalo de 1 segundo. O primeiro código utiliza a biblioteca `gpiozero` para controle diretamente no Raspberry Pi.
 
-## Código 1: Blink com GPIOZero (Python)
+## Código 1: blink.py
 
 Este código utiliza a biblioteca `gpiozero` para controlar um LED no Raspberry Pi. O LED acende e apaga a cada 1 segundo.
 
@@ -56,5 +52,33 @@ while True:
     PinLED.off()
     sleep(1)
 ```
-## Código 2: Interrompição do serviço de acendimento do LED (Python)
-o segundo código é uma configuração de serviço no systemd para gerenciar o blink do LED.
+## Código 2: stop_blink.py
+Esse código utiliza a biblioteca RPi.GPIO para desligar o LED ligado ao pino GPIO 18 e libera os recursos associados aos pinos GPIO utilizados no programa, retornando-os ao estado inicial para evitar conflitos em futuros usos.
+
+```python
+import RPi.GPIO as GPIO
+
+# Configuração do GPIO
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(18, GPIO.OUT)
+
+# Desliga o LED e limpa os pinos
+GPIO.output(18, GPIO.LOW)
+GPIO.cleanup()
+```
+## Código 3: blink2524.service
+O terceiro código é um unit file, que é responsável pela configuração do serviço no systemd para gerenciar os códigos blink.py e stop_blink.py, colocando o
+serviço que criamos à disposição do systemd.
+
+```
+import RPi.GPIO as GPIO
+
+# Configuração do GPIO
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(18, GPIO.OUT)
+
+# Desliga o LED e limpa os pinos
+GPIO.output(18, GPIO.LOW)
+GPIO.cleanup()
+```
+
