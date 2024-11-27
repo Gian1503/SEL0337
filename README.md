@@ -14,7 +14,7 @@ O projeto consiste em:
 ### Etapas Implementadas
 1. **Criação dos Scripts (`blink.py` e `stop_blink.py`)**:
    - O primeiro script exporta e configura o GPIO 18 como saída, alternando o estado do LED em um loop infinito.
-   - O segudno script é responsável por interromper o serviço, apagando o LED indefinidamente.
+   - O segundo script é responsável por interromper a alternação de estado do LED, apagando o LED por tempo indefinido.
 
 2. **Configuração do Serviço (`blink2524.service`)**:
    - Define o script como o processo a ser executado no boot.
