@@ -22,7 +22,7 @@ O projeto consiste em:
 
 3. **Documentação e Controle de Versão**:
    - Todos os arquivos e alterações estão registrados neste repositório Git.
-   - O histórico de commits pode ser consultado no arquivo `historico_git.txt`.
+   - O histórico de commits pode ser consultado no arquivo `historico.txt`.
 
 ## Fotografia da Montagem
 - A montagem prática do circuito pode ser vista na imagem abaixo:
@@ -87,6 +87,6 @@ WantedBy=multi-user.target                # Garante que o serviço será habilit
 
 A última etapa foi transferir os scripst criados na raspberry pi para este repositório, utilizando comandos como: **git config --global user.name "username"** e **git config --global user.email "seu_email"**.
 Uma vez que o repositório foi clonado na raspberry pi e o acesso foi estabelecido, os scripts foram transferidos para este repositório utilizando comandos como: **git add**, **git commit** e **git push**. Para executar o comando **git push** com sucesso, foi necessário gerar um Token de acesso na conta do GitHub.
-Todo o histórico de commits para esta atividade pode ser observado no arquivo **historico_git.txt**.
+Todo o histórico de commits para esta atividade pode ser observado no arquivo `historico.txt`.
 
 
